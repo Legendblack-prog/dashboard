@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0e16">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Дашборд сигналов Bybit</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon192.png">
+  <link rel="apple-touch-icon" href="icons/icon192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="w">
+
+<div class="top">
+  <select id="sym">
+    <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option>
+    <option>XRPUSDT</option><option>DOGEUSDT</option><option>AVAXUSDT</option>
+    <option>LINKUSDT</option><option>TONUSDT</option>
+  </select>
+  <button id="nt" title="Уведомления">🔔</button>
+  <span class="bd" id="md"></span>
+  <span id="tfs">
+    <button data-t="1" class="on">1м</button><button data-t="5">5м</button><button data-t="15">15м</button>
+    <button data-t="30">30м</button><button data-t="60">1ч</button><button data-t="240">4ч</button>
+    <button data-t="D">Д</button><button data-t="W">Н</button>
+  </span>
+</div>
+
+<div class="card" id="sg">
+  <div class="sig">
+    <div><div class="big" id="sc">0</div><div class="sub" id="px"></div></div>
+    <div><div class="lab" id="lb">Ждать</div><div class="sub" id="rg"></div></div>
+  </div>
+  <div class="g"><u style="left:15%"></u><u style="left:85%"></u><i id="mk" style="left:50%"></i></div>
+  <div class="sc"><span>шорт −100</span><span>порог</span><span>лонг +100</span></div>
+  <div class="fs" id="fs" hidden></div>
+</div>
+
+<div class="card chart"><canvas id="cv"></canvas></div>
+<div class="card" id="ms"></div>
+
+<div class="card">
+  <div class="mh">Сделка и риск<span>0.13%, трейл 0.5/1R</span></div>
+  <div class="bt"><button class="l" id="bl">Лонг</button><button class="s" id="bs">Шорт</button><button id="bc">Закрыть</button></div>
+  <div class="rk" id="rk"></div>
+  <div class="n" style="margin-top:6px">Риск, $ <input id="rs" type="number" value="10" min="1"></div>
+</div>
+
+<div class="card">
+  <div class="mh">Журнал<span id="st"></span></div>
+  <table class="lg" id="lg"></table>
+  <div class="log-actions">
+    <button id="log-save" disabled>💾 Сохранить</button>
+    <button id="log-ntfy" disabled>📤 ntfy</button>
+    <button id="log-clear" disabled>🗑 Очистить</button>
+  </div>
+  <div class="n" id="log-msg"></div>
+</div>
+
+<div class="card">
+  <div class="mh">Уведомления (ntfy)</div>
+  <div class="ch">
+    <div class="ch-h">Push <label class="ck"><input type="checkbox" id="push-on">вкл</label></div>
+    <div class="ch-row">
+      <input id="ntfy" type="text" placeholder="топик ntfy" autocomplete="off">
+      <button id="ntfy-t">Тест</button>
+    </div>
+  </div>
+</div>
+
+<div class="install-bar" id="install-bar">
+  <span>Установить на экран</span>
+  <button type="button" id="install-btn">Установить</button>
+</div>
+
+<div class="f">PWA для теста. Скор — 4 индикатора. Работает, пока вкладка/приложение открыто. Для 24/7 пушей — VPS или старый телефон с Termux. Не совет. v1.0-pwa</div>
+</div>
+
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
